@@ -1,7 +1,9 @@
 package com.example.hotelmanagement.ui.theme.screens.login
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,6 +18,8 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -42,101 +46,152 @@ import com.example.hotelmanagement.R
 import com.example.hotelmanagement.ui.theme.Pink
 import com.example.hotelmanagement.navigation.ROUT_HOME
 import com.example.hotelmanagement.navigation.ROUT_SIGNUP
+import com.example.hotelmanagement.ui.theme.newPink
 
 @Composable
 fun LoginScreen(navController: NavController){
 
-      Column (modifier = Modifier.fillMaxSize(),
+      Column (modifier = Modifier.fillMaxSize().background(newPink),
           horizontalAlignment = Alignment.CenterHorizontally
+
       ){
           Spacer(modifier = Modifier.height(40.dp))
 
-          Image(
-              painter = painterResource(id = R.drawable.img_1),
-              contentDescription = "home",
-              modifier = Modifier
-                  .size(200.dp),
-              contentScale = ContentScale.Crop
-          )
-          Spacer(modifier = Modifier.height(10.dp))
 
-          Text(
-              text = "Welcome Back",
-              fontSize = 40.sp,
-              fontFamily = FontFamily.Cursive,
-              color = Color.Magenta
+         Box (modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center){
+             Image(
+                 painter = painterResource(id = R.drawable.img_5),
+                 contentDescription = "home",
+                 modifier = Modifier
+                     .size(200.dp),
+                 contentScale = ContentScale.Crop
+             )
 
-          )
-          Spacer(modifier = Modifier.height(10.dp))
-          Text(
-              text = "Already have an account.Please enter your credentials",
-              fontSize = 18.sp,
-              fontFamily = FontFamily.SansSerif,
-              color = Color.Blue,
-              modifier = Modifier.fillMaxWidth(),
-              textAlign = TextAlign.Center
+          }
 
-          )
-          var email by remember { mutableStateOf("") }
-          var password by remember { mutableStateOf("") }
-
-          Spacer(modifier = Modifier.height(40.dp))
-
-          OutlinedTextField(
-              value =email ,
-              onValueChange ={ email=it},
-              label = { Text(text = "Email Address :")},
-              modifier = Modifier
-                  .fillMaxWidth()
-                  .padding(start = 20.dp, end = 20.dp),
-              leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription ="person" ) },
-              keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
-          )
-          Spacer(modifier = Modifier.height(40.dp))
-
-          OutlinedTextField(
-              value =password,
-              onValueChange ={ password=it},
-              label = { Text(text = "Password :")},
-              modifier = Modifier
-                  .fillMaxWidth()
-                  .padding(start = 20.dp, end = 20.dp),
-              leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription ="person" )},
-              keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-              visualTransformation = PasswordVisualTransformation()
-
-          )
-          Spacer(modifier = Modifier.height(40.dp))
-
-          Button(
-              onClick = {
-                  navController.navigate(ROUT_HOME)
-              },
-              modifier = Modifier
-                  .fillMaxWidth()
-                  .height(50.dp)
-                  .padding(start = 20.dp, end = 20.dp),
-              colors = ButtonDefaults.buttonColors(Pink),
-              shape = RoundedCornerShape(10.dp)
-          ) {
-              Text(text = "Login")
 
               Spacer(modifier = Modifier.height(10.dp))
 
-          }
-          Spacer(modifier = Modifier.height(10.dp))
-          Text(
-              text = "Do not have an account ? Register",
-              fontSize = 18.sp,
-              fontFamily = FontFamily.SansSerif,
-              color = Color.Black,
-              modifier = Modifier
-                  .fillMaxWidth()
-                  .clickable {
-                      navController.navigate(ROUT_SIGNUP) },
-              textAlign = TextAlign.Center
+              Text(
+                  text = "PrideInn",
+                  fontSize = 40.sp,
+                  fontFamily = FontFamily.Cursive,
+                  color = Color.White,
+                  modifier = Modifier.fillMaxWidth(),
+                  textAlign = TextAlign.Center
 
-          )
+              )
+              Spacer(modifier = Modifier.height(10.dp))
+              Text(
+                  text = "Already have an account.Please enter your credentials",
+                  fontSize = 18.sp,
+                  fontFamily = FontFamily.SansSerif,
+                  color = Color.White,
+                  modifier = Modifier.fillMaxWidth(),
+                  textAlign = TextAlign.Center
+
+              )
+
+          Spacer(modifier = Modifier.height(40.dp))
+
+
+
+          Column(){
+
+              Card(
+                  modifier = Modifier
+                      .fillMaxWidth()
+                      .height(700.dp),
+                  shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp),
+                  colors = CardDefaults.cardColors(Color.White)
+              ){
+
+
+                  Spacer(modifier = Modifier.height(40.dp))
+
+
+                  Text(
+                      text = "Welcome Back!",
+                      fontSize = 40.sp,
+                      fontFamily = FontFamily.Cursive,
+                      modifier = Modifier.fillMaxWidth(),
+                      textAlign = TextAlign.Center
+
+                  )
+                  Spacer(modifier = Modifier.height(30.dp))
+
+
+                  var email by remember { mutableStateOf("") }
+                  var password by remember { mutableStateOf("") }
+
+                  Spacer(modifier = Modifier.height(10.dp))
+
+                  OutlinedTextField(
+                      value =email ,
+                      onValueChange ={ email=it},
+                      label = { Text(text = "Email Address :")},
+                      modifier = Modifier
+                          .fillMaxWidth()
+                          .padding(start = 20.dp, end = 20.dp),
+                      leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription ="person" ) },
+                      keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
+                  )
+                  Spacer(modifier = Modifier.height(10.dp))
+
+                  OutlinedTextField(
+                      value =password,
+                      onValueChange ={ password=it},
+                      label = { Text(text = "Password :")},
+                      modifier = Modifier
+                          .fillMaxWidth()
+                          .padding(start = 20.dp, end = 20.dp),
+                      leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription ="person" )},
+                      keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+                      visualTransformation = PasswordVisualTransformation()
+
+                  )
+                  Spacer(modifier = Modifier.height(40.dp))
+
+                  Button(
+                      onClick = {
+                          navController.navigate(ROUT_HOME)
+                      },
+                      modifier = Modifier
+                          .fillMaxWidth()
+                          .height(50.dp)
+                          .padding(start = 20.dp, end = 20.dp),
+                      colors = ButtonDefaults.buttonColors(Pink),
+                      shape = RoundedCornerShape(10.dp)
+                  ) {
+                      Text(text = "Login")
+
+                      Spacer(modifier = Modifier.height(10.dp))
+
+                  }
+                  Spacer(modifier = Modifier.height(10.dp))
+                  Text(
+                      text = "Do not have an account ? Register",
+                      fontSize = 18.sp,
+                      fontFamily = FontFamily.SansSerif,
+                      color = Color.Black,
+                      modifier = Modifier
+                          .fillMaxWidth()
+                          .clickable {
+                              navController.navigate(ROUT_SIGNUP)
+                          },
+                      textAlign = TextAlign.Center
+
+                  )
+
+              }
+
+          }
+
+
+
+
+
+
 }
 
 

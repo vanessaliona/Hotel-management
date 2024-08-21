@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,22 +28,24 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.hotelmanagement.R
 import com.example.hotelmanagement.ui.theme.Pink
+import com.example.hotelmanagement.ui.theme.newPink
 
 
 @Composable
 fun HomeScreen(navController: NavController){
         Column (modifier = Modifier
             .fillMaxSize()
-            .background(Pink),
+            .background(newPink),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
             ){
 
             Text(
-                text = "Hotel Management",
+                text = "Pride Inn Management",
                 fontSize = 40.sp,
                 fontFamily = FontFamily.Default,
-                color = Color.Blue
+                color = Color.White,
+                textAlign = TextAlign.Center
 
             )
 
@@ -67,7 +70,8 @@ fun HomeScreen(navController: NavController){
 
                 Text(
                        text = "Your better choice",
-                        fontSize = 20.sp
+                        fontSize = 20.sp,
+                    color = Color.White,
                      )
                      Spacer(modifier = Modifier.height(40.dp))
 

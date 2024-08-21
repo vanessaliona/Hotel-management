@@ -30,6 +30,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.hotelmanagement.ui.theme.Green
 import com.example.hotelmanagement.R
 import com.example.hotelmanagement.navigation.ROUT_LOGIN
+import com.example.hotelmanagement.ui.theme.newPink
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -38,7 +39,7 @@ import kotlinx.coroutines.launch
 fun SplashScreen(navController: NavController){
     Column(modifier = Modifier
         .fillMaxSize()
-        .background(Green),
+        .background(newPink),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
