@@ -16,6 +16,7 @@ import com.example.hotelmanagement.navigation.ROUT_HOME
 import com.example.hotelmanagement.navigation.ROUT_LOGIN
 import com.example.hotelmanagement.navigation.ROUT_SIGNUP
 import com.example.hotelmanagement.navigation.ROUT_SPLASH
+import com.example.propertyplus.ui.theme.screens.dashboard.DashboardScreen
 
 @Composable
 fun AppNavHost(
@@ -51,9 +52,22 @@ fun AppNavHost(
 
         }
 
+        composable(ROUT_DASHBOARD) {
+            DashboardScreen(navController = navController)
+
+        }
+        composable(ROUT_INTENT) {
+            IntentScreen(navController = navController)
+
+        }
+
 
     }
 }
 
+@Composable
+fun IntentScreen(navController: NavHostController) {
+
+}
 
 
