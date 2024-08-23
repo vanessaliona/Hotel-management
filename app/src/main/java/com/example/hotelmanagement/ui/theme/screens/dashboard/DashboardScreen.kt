@@ -39,6 +39,7 @@ fun DashboardScreen(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
+
     ) {
         Text(
             text = "Pride Inn",
