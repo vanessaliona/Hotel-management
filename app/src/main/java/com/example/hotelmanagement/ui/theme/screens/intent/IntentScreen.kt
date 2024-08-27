@@ -12,15 +12,20 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.PlayArrow
@@ -35,6 +40,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -42,21 +48,28 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.hotelmanagement.R
 import com.example.hotelmanagement.ui.theme.Pink
+import com.example.hotelmanagement.ui.theme.newPink
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -72,8 +85,7 @@ fun IntentScreen(navController: NavController){
       Scaffold(
           bottomBar = {
               NavigationBar(
-                  containerColor = Color.Red,
-                  contentColor = Color.Blue
+                  containerColor = newPink,
               ) {
                   bottomNavItems.forEachIndexed { index, bottomNavItem ->
                       NavigationBarItem(
@@ -112,8 +124,8 @@ fun IntentScreen(navController: NavController){
           },
           topBar = {
               TopAppBar(
-                  title = { Text(text = "Pride Inn Hotel") },
-                  colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Blue)
+                  title = { Text(text = "Pride Inn Hotel", color = Color.White) },
+                  colors = TopAppBarDefaults.mediumTopAppBarColors(newPink)
               )
 
           },
@@ -132,189 +144,90 @@ fun IntentScreen(navController: NavController){
               Column(
                   modifier = androidx.compose.ui.Modifier
                       .fillMaxSize()
-                      .padding(top = 70.dp, start = 20.dp),
+                      .padding(top = 70.dp)
+                      .verticalScroll(rememberScrollState()),
 
                   ) {
 
 
-                  Row {
-                      Card(
-                          modifier = androidx.compose.ui.Modifier
-                              .height(180.dp)
-                              .width(200.dp)
-                      ) {
-                          Box(
-                              modifier = androidx.compose.ui.Modifier
-                                  .height(500.dp)
-                                  .fillMaxWidth(),
-                              contentAlignment = Alignment.Center
-                          ) {
 
-                              Image(
-                                  painter = painterResource(id = R.drawable.img_7),
-                                  contentDescription = "home",
-                                  modifier = androidx.compose.ui.Modifier.fillMaxSize(),
-                                  contentScale = ContentScale.Crop
-                              )
-                              Icon(
-                                  imageVector = Icons.Default.Favorite,
-                                  contentDescription = "favourite",
-                                  modifier = androidx.compose.ui.Modifier
-                                      .align(Alignment.TopStart).padding(10.dp)
+                Row (modifier = Modifier.padding(start = 10.dp)){
+
+                 Column {
+
+                     Text(
+                         text = "Pride Inn",
+                         fontSize = 40.sp
+
+                     )
+                     Spacer(modifier = Modifier.width(40.dp))
+
+                     Text(
+                         text = "Management",
+                         fontSize = 40.sp,
+                         fontFamily = FontFamily.Monospace
+
+                     )
+                 }
+                    Spacer(modifier = Modifier.width(40.dp))
 
 
-                              )
-                          }
-                      }
-                      Column(modifier = androidx.compose.ui.Modifier.padding(start = 2.dp)) {
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(imageVector = Icons.Default.ThumbUp, contentDescription = "", modifier = Modifier.size(150.dp))
+                    }
 
-                          Text(text = "PrideInn Westlands Luxury Boutique Hotel")
-                          Text(text = "The best you can find")
-                          Row {
-                              Icon(imageVector = Icons.Default.Star, contentDescription = "")
-                              Icon(imageVector = Icons.Default.Star, contentDescription = "")
-                              Icon(imageVector = Icons.Default.Star, contentDescription = "")
-                              Icon(imageVector = Icons.Default.Star, contentDescription = "")
-                              Icon(imageVector = Icons.Default.Star, contentDescription = "")
-                          }
-                          Text(text = "1.5K ")
-                          val mContext = LocalContext.current
 
-                          Button(
-                              onClick = {
-                                  val callIntent=Intent(Intent.ACTION_DIAL)
-                                  callIntent.data="tel:0746348846".toUri()
-                                  mContext.startActivity(callIntent)
-                              },
-                              colors = ButtonDefaults.buttonColors(Color.Blue),
-                              shape = RoundedCornerShape(10.dp)
-                          ) {
-                              Text(text = "Call")
-                          }
-                      }
 
-                  }
-                  //End of card
-                  Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
+                }
+                  Spacer(modifier = Modifier.height(40.dp))
 
-                  val mContext = LocalContext.current
+                  //code for searchbar
+                  var search by remember { mutableStateOf("")   }
 
-                  Button(
-                      onClick = {
-                          val simToolKitLaunchIntent =
-                              mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
-                          simToolKitLaunchIntent?.let { mContext.startActivity(it) }
-                      },
-                      modifier = androidx.compose.ui.Modifier
+                  OutlinedTextField(
+                      value = search,
+                      onValueChange = {search=it},
+                      modifier = Modifier
                           .fillMaxWidth()
-                          .height(50.dp)
                           .padding(start = 20.dp, end = 20.dp),
-                      colors = ButtonDefaults.buttonColors(Color.Blue),
-                      shape = RoundedCornerShape(10.dp)
-                  ) {
-                      Text(text = "MPESA")
-                  }
-                  Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
+                      leadingIcon = { androidx.compose.material3.Icon(imageVector = Icons.Default.Search, contentDescription = "")},
+                      placeholder = { Text(text = "Search Hotel")}
+
+                  )
 
 
+                  Spacer(modifier = Modifier.height(20.dp))
 
-                  Button(
-                      onClick = {
-                          val shareIntent = Intent(Intent.ACTION_SEND)
-                          shareIntent.type = "text/plain"
-                          shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("vanessaliona966@gmail.com"))
-                          shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
-                          shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
-                          mContext.startActivity(shareIntent)
-                      },
-                      modifier = androidx.compose.ui.Modifier
-                          .fillMaxWidth()
-                          .height(50.dp)
-                          .padding(start = 20.dp, end = 20.dp),
-                      colors = ButtonDefaults.buttonColors(Color.Cyan),
-                      shape = RoundedCornerShape(10.dp)
-                  ) {
-                      Text(text = "CALL")
-                  }
-                  Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
 
-                  Button(
-                      onClick = {
-                          val smsIntent=Intent(Intent.ACTION_SENDTO)
-                          smsIntent.data="smsto:0746348846".toUri()
-                          smsIntent.putExtra("sms_body","Hello Visitors,how was your day?")
-                          mContext.startActivity(smsIntent)
-                      },
-                      modifier = androidx.compose.ui.Modifier
-                          .fillMaxWidth()
-                          .height(50.dp)
-                          .padding(start = 20.dp, end = 20.dp),
-                      colors = ButtonDefaults.buttonColors(Color.Red),
-                      shape = RoundedCornerShape(10.dp)
-                  ) {
-                      Text(text = "SMS")
-                  }
-                  Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
-
-                  Button(
-                      onClick = {
-                          val shareIntent = Intent(Intent.ACTION_SEND)
-                          shareIntent.type = "text/plain"
-                          shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("www.prideinn.co.ke"))
-                          shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
-                          shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
-                          mContext.startActivity(shareIntent)
-                      },
-                      modifier = androidx.compose.ui.Modifier
-                          .fillMaxWidth()
-                          .height(50.dp)
-                          .padding(start = 20.dp, end = 20.dp),
-                      colors = ButtonDefaults.buttonColors(Color.Magenta),
-                      shape = RoundedCornerShape(10.dp)
-                  ) {
-                      Text(text = "EMAIL")
-                  }
-                  Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
-
-                  Button(
-                      onClick = {
-                          val cameraIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                          if (cameraIntent.resolveActivity(mContext.packageManager)!=null){
-                              mContext.startActivity(cameraIntent)
-                          }else{
-                              println("Camera app is not available")
-                          }
-
-                      },
-                      modifier = androidx.compose.ui.Modifier
-                          .fillMaxWidth()
-                          .height(50.dp)
-                          .padding(start = 20.dp, end = 20.dp),
-                      colors = ButtonDefaults.buttonColors(Color.Cyan),
-                      shape = RoundedCornerShape(10.dp)
-                  ) {
-                      Text(text = "CAMERA")
-                  }
-                  Spacer(modifier = androidx.compose.ui.Modifier.height(10.dp))
-
-                  Button(
-                      onClick = {
-                          val shareIntent=Intent(Intent.ACTION_SEND)
-                          shareIntent.type="text/plain"
-                          shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool content")
-                          mContext.startActivity(Intent.createChooser(shareIntent, "Share"))
-                      },
-
-                      modifier = androidx.compose.ui.Modifier
-                          .fillMaxWidth()
-                          .height(50.dp)
-                          .padding(start = 20.dp, end = 20.dp),
-                      colors = ButtonDefaults.buttonColors(Pink),
-                      shape = RoundedCornerShape(10.dp)
-                  ) {
-                      Text(text = "SHARE")
+                  Box (modifier = Modifier
+                      .fillMaxWidth()
+                      .padding(start = 10.dp, end = 10.dp)
+                      .height(280.dp), contentAlignment = Alignment.Center)
+                  {
+                      Image(
+                          painter = painterResource(id = R.drawable.img_6),
+                          contentDescription = "home",
+                          modifier = Modifier.fillMaxSize(),
+                          contentScale = ContentScale.Crop
+                      )
                   }
 
+
+                  Spacer(modifier = Modifier.height(20.dp))
+
+
+                  Box (modifier = Modifier
+                      .fillMaxWidth()
+                      .padding(start = 10.dp, end = 10.dp)
+                      .height(280.dp), contentAlignment = Alignment.Center)
+                  {
+                      Image(
+                          painter = painterResource(id = R.drawable.img),
+                          contentDescription = "home",
+                          modifier = Modifier.fillMaxSize(),
+                          contentScale = ContentScale.Crop
+                      )
+                  }
 
 
 

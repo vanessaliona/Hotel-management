@@ -12,13 +12,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -41,6 +44,9 @@ fun DashboardScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
+
+        Spacer(modifier = Modifier.height(30.dp))
+
         Text(
             text = "Pride Inn",
             fontSize = 40.sp,
@@ -63,7 +69,7 @@ fun DashboardScreen(navController: NavController) {
 
         )
         Spacer(modifier = Modifier.height(5.dp))
-        Column {
+        Column (modifier = Modifier.verticalScroll(rememberScrollState())){
             //Start of main card
             Card(
                 modifier = Modifier
@@ -87,7 +93,7 @@ fun DashboardScreen(navController: NavController) {
                                 contentAlignment = Alignment.Center
                             ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.img_7),
+                                    painter = painterResource(id = R.drawable.img_13),
                                     contentDescription = "Home",
                                     modifier = Modifier.size(100.dp)
                                 )
@@ -95,7 +101,7 @@ fun DashboardScreen(navController: NavController) {
                             Spacer(modifier = Modifier.height(15.dp))
 
                             Text(
-                                text = "Home",
+                                text = "Hotels",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center
@@ -110,7 +116,9 @@ fun DashboardScreen(navController: NavController) {
                     Spacer(modifier = Modifier.width(20.dp))
 
                     //Card
-                    Card(modifier = Modifier.width(160.dp).height(180.dp)) {
+                    Card(modifier = Modifier
+                        .width(160.dp)
+                        .height(180.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -145,7 +153,9 @@ fun DashboardScreen(navController: NavController) {
                 //Row1
                 Row(modifier = Modifier.padding(20.dp)) {
                     //Card
-                    Card(modifier = Modifier.width(160.dp).height(180.dp)) {
+                    Card(modifier = Modifier
+                        .width(160.dp)
+                        .height(180.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
@@ -177,7 +187,9 @@ fun DashboardScreen(navController: NavController) {
                         Spacer(modifier = Modifier.width(20.dp))
 
                     //Card
-                    Card(modifier = Modifier.width(160.dp).height(180.dp)) {
+                    Card(modifier = Modifier
+                        .width(160.dp)
+                        .height(180.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -211,7 +223,9 @@ fun DashboardScreen(navController: NavController) {
                 //Row1
                 Row(modifier = Modifier.padding(20.dp)) {
                     //Card
-                    Card(modifier = Modifier.width(160.dp).height(180.dp)) {
+                    Card(modifier = Modifier
+                        .width(160.dp)
+                        .height(180.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
@@ -243,7 +257,9 @@ fun DashboardScreen(navController: NavController) {
                              Spacer(modifier = Modifier.width(20.dp))
 
                     //Card
-                    Card(modifier = Modifier.width(160.dp).height(180.dp)) {
+                    Card(modifier = Modifier
+                        .width(160.dp)
+                        .height(180.dp)) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 

@@ -2,6 +2,7 @@ package com.example.hotelmanagement.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -60,9 +61,27 @@ fun AppNavHost(
             IntentScreen(navController = navController)
 
         }
+        composable(ROUT_BOOK) {
+            BookScreen(navController = navController)
+
+        }
+        composable(ROUT_SERVICE) {
+           ServiceScreen(navController = navController)
+
+        }
 
 
     }
+}
+
+@Composable
+fun ServiceScreen(navController: NavHostController) {
+
+}
+
+@Composable
+fun BookScreen(navController: NavHostController) {
+
 }
 
 @Composable
