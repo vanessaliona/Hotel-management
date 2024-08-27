@@ -17,6 +17,13 @@ import com.example.hotelmanagement.navigation.ROUT_HOME
 import com.example.hotelmanagement.navigation.ROUT_LOGIN
 import com.example.hotelmanagement.navigation.ROUT_SIGNUP
 import com.example.hotelmanagement.navigation.ROUT_SPLASH
+import com.example.hotelmanagement.ui.theme.screens.drinks.DrinkScreen
+import com.example.hotelmanagement.ui.theme.screens.entertainment.EntertainmentScreen
+import com.example.hotelmanagement.ui.theme.screens.food.FoodScreen
+import com.example.hotelmanagement.ui.theme.screens.hotels.HotelScreen
+import com.example.hotelmanagement.ui.theme.screens.intent.IntentScreen
+import com.example.hotelmanagement.ui.theme.screens.menu.MenuScreen
+import com.example.hotelmanagement.ui.theme.screens.rooms.RoomScreen
 import com.example.propertyplus.ui.theme.screens.dashboard.DashboardScreen
 
 @Composable
@@ -61,32 +68,51 @@ fun AppNavHost(
             IntentScreen(navController = navController)
 
         }
-        composable(ROUT_BOOK) {
-            BookScreen(navController = navController)
+
+        composable(ROUT_MENU) {
+            MenuScreen(navController = navController)
 
         }
-        composable(ROUT_SERVICE) {
-           ServiceScreen(navController = navController)
+
+        composable(ROUT_ROOM) {
+            RoomScreen(navController = navController)
 
         }
+
+        composable(ROUT_FOOD) {
+         FoodScreen(navController = navController)
+
+        }
+
+        composable(ROUT_DRINK) {
+        DrinkScreen(navController = navController)
+
+        }
+
+        composable(ROUT_ENTERTAINMENT) {
+            EntertainmentScreen(navController = navController)
+        }
+
+        composable(ROUT_HOTEL) {
+           HotelScreen(navController = navController)
+
+        }
+
+
+
 
 
     }
 }
 
-@Composable
-fun ServiceScreen(navController: NavHostController) {
 
-}
 
-@Composable
-fun BookScreen(navController: NavHostController) {
 
-}
 
-@Composable
-fun IntentScreen(navController: NavHostController) {
 
-}
+
+
+
+
 
 

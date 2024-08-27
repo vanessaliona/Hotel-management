@@ -135,12 +135,15 @@ fun DashboardScreen(navController: NavController) {
                             Spacer(modifier = Modifier.height(15.dp))
 
                             Text(
-                                text = "Menu",
+                             text = "Menu",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
 
-                            )
+
+
+                                )
+
                         }
 
 
