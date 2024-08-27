@@ -33,8 +33,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.hotelmanagement.R
+import com.example.hotelmanagement.navigation.ROUT_DRINK
+import com.example.hotelmanagement.navigation.ROUT_ENTERTAINMENT
+import com.example.hotelmanagement.navigation.ROUT_FOOD
 import com.example.hotelmanagement.navigation.ROUT_HOTEL
 import com.example.hotelmanagement.navigation.ROUT_INTENT
+import com.example.hotelmanagement.navigation.ROUT_MENU
+import com.example.hotelmanagement.navigation.ROUT_ROOM
 import com.example.hotelmanagement.ui.theme.Pink
 
 @Composable
@@ -119,7 +124,9 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)) {
+                        .height(180.dp)
+                        .clickable { navController.navigate(ROUT_MENU) }
+                    ) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -159,7 +166,8 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)) {
+                        .height(180.dp)
+                        .clickable { navController.navigate(ROUT_ENTERTAINMENT) }) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
@@ -193,7 +201,8 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)) {
+                        .height(180.dp)
+                        .clickable { navController.navigate(ROUT_ROOM ) }) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -229,7 +238,8 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)) {
+                        .height(180.dp)
+                        .clickable { navController.navigate(ROUT_DRINK) }) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
@@ -263,7 +273,8 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)) {
+                        .height(180.dp)
+                        .clickable { navController.navigate(ROUT_FOOD) }) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
