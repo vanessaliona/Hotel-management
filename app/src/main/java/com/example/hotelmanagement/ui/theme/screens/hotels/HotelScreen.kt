@@ -108,6 +108,8 @@ fun HotelScreen(navController: NavController){
                     colors = TopAppBarDefaults.mediumTopAppBarColors(newPink)
                 )
 
+                Spacer(modifier = Modifier.height(50.dp))
+
             },
 
 
@@ -124,14 +126,14 @@ fun HotelScreen(navController: NavController){
                 Column(
                     modifier = androidx.compose.ui.Modifier
                         .fillMaxSize()
-                        .padding(top = 70.dp)
+                        .padding(top = 100.dp)
                         .verticalScroll(rememberScrollState()),
 
                     ) {
 
 
 
-                    Row (modifier = Modifier.padding(start = 10.dp)){
+                    Row (modifier = Modifier.padding(5.dp)){
 
                         Column {
 

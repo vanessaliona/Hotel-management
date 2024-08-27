@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.hotelmanagement.R
+import com.example.hotelmanagement.navigation.ROUT_HOTEL
 import com.example.hotelmanagement.navigation.ROUT_INTENT
 import com.example.hotelmanagement.ui.theme.Pink
 
@@ -84,7 +85,7 @@ fun DashboardScreen(navController: NavController) {
                     Card(modifier = Modifier
                         .width(160.dp)
                         .height(180.dp)
-                        .clickable { navController.navigate(ROUT_INTENT) }) {
+                        .clickable { navController.navigate(ROUT_HOTEL) }) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
