@@ -49,7 +49,7 @@ fun HomeScreen(navController: NavController){
             Text(
                 text = "Pride Inn Management",
                 fontSize = 40.sp,
-                fontFamily = FontFamily.Monospace,
+                fontFamily = FontFamily.Serif,
                 color = Color.White,
                 textAlign = TextAlign.Center
 
@@ -78,6 +78,7 @@ fun HomeScreen(navController: NavController){
                        text = "Your better choice",
                         fontSize = 20.sp,
                     color = Color.White,
+                    fontFamily = FontFamily.SansSerif
                      )
                      Spacer(modifier = Modifier.height(40.dp))
 

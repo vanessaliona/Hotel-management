@@ -108,7 +108,7 @@ fun HotelScreen(navController: NavController){
                     colors = TopAppBarDefaults.mediumTopAppBarColors(newPink)
                 )
 
-                Spacer(modifier = Modifier.height(50.dp))
+                Spacer(modifier = Modifier.height(50.dp ))
 
             },
 
@@ -142,7 +142,7 @@ fun HotelScreen(navController: NavController){
                                 fontSize = 40.sp
 
                             )
-                            Spacer(modifier = Modifier.width(40.dp))
+                            Spacer(modifier = Modifier.width(80.dp))
 
                             Text(
                                 text = "Hotels",
@@ -211,6 +211,8 @@ fun HotelScreen(navController: NavController){
                         )
                     }
 
+
+                    Spacer(modifier = Modifier.height(80.dp))
 
 
 

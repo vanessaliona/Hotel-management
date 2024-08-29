@@ -6,10 +6,13 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.hotelmanagement.models.User
+import com.example.hotelmanagement.navigation.ADD_MENU_URL
+import com.example.hotelmanagement.navigation.ROUT_ADMIN
 import com.example.hotelmanagement.navigation.ROUT_DASHBOARD
 import com.example.hotelmanagement.navigation.ROUT_HOME
 import com.example.hotelmanagement.navigation.ROUT_LOGIN
 import com.example.hotelmanagement.navigation.ROUT_SIGNUP
+import com.example.hotelmanagement.ui.theme.screens.menus.AddMenuScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
@@ -25,10 +28,8 @@ class AuthViewModel {
             progress.setMessage("Please wait...")
         }
         fun signup(name:String, email:String, password:String,confpassword:String){
-            progress.show()
 
             if (email.isBlank() || password.isBlank() ||confpassword.isBlank()){
-                progress.dismiss()
                 Toast.makeText(context,"Please email and password cannot be blank", Toast.LENGTH_LONG).show()
             }else if (password != confpassword){
                 Toast.makeText(context,"Password do not match", Toast.LENGTH_LONG).show()
@@ -88,7 +89,7 @@ class AuthViewModel {
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful ){
                         Toast.makeText(this.context, "Success", Toast.LENGTH_SHORT).show()
-                        navController.navigate(ROUT_DASHBOARD)
+                        navController.navigate(ROUT_ADMIN)
                     }else{
                         Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
                     }

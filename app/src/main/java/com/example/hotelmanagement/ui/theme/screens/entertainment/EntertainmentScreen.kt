@@ -58,7 +58,7 @@ import com.example.hotelmanagement.ui.theme.screens.intent.bottomNavItems
 fun EntertainmentScreen(navController: NavController){
 
 
-    Column(modifier = androidx.compose.ui.Modifier.fillMaxSize()
+    Column(modifier = Modifier.fillMaxSize()
     ) {
 
 
@@ -123,7 +123,7 @@ fun EntertainmentScreen(navController: NavController){
             //Content Section
             content = @Composable {
                 Column(
-                    modifier = androidx.compose.ui.Modifier
+                    modifier = Modifier
                         .fillMaxSize()
                         .padding(top = 70.dp)
                         .verticalScroll(rememberScrollState()),
@@ -171,7 +171,7 @@ fun EntertainmentScreen(navController: NavController){
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = 20.dp, end = 20.dp),
-                        leadingIcon = { androidx.compose.material3.Icon(imageVector = Icons.Default.Search, contentDescription = "")},
+                        leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "")},
                         placeholder = { Text(text = "Search Entertainment") }
 
                     )

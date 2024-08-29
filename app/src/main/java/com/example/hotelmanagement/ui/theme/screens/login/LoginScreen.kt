@@ -159,7 +159,7 @@ fun LoginScreen(navController: NavController){
                   val authViewModel = AuthViewModel.AuthViewModel(navController, context)
                   Button(
                       onClick = {
-                          navController.navigate(ROUT_HOME)
+                          authViewModel.login(email,password)
                       },
                       modifier = Modifier
                           .fillMaxWidth()

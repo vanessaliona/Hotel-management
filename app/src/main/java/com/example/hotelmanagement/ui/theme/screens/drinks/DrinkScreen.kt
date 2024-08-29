@@ -131,7 +131,7 @@ fun DrinkScreen(navController: NavController){
 
 
 
-                    Row (modifier = Modifier.padding(start = 10.dp)){
+                    Row (modifier = Modifier.padding(start = 10.dp, top = 30.dp)){
 
                         Column {
 

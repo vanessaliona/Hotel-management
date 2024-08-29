@@ -183,7 +183,7 @@ Column(
 
             Button(
                 onClick = {
-                    authViewModel.login(email, password)
+                    authViewModel.signup(name,email, password,confpassword)
                 },
                 modifier = Modifier
                     .fillMaxWidth()

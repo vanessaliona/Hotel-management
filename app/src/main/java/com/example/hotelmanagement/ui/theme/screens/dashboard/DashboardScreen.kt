@@ -1,6 +1,7 @@
-package com.example.propertyplus.ui.theme.screens.dashboard
+package com.example.hotelmanagement.ui.theme.screens.dashboard
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -21,11 +23,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,46 +39,43 @@ import androidx.navigation.compose.rememberNavController
 import com.example.hotelmanagement.R
 import com.example.hotelmanagement.navigation.ROUT_DRINK
 import com.example.hotelmanagement.navigation.ROUT_ENTERTAINMENT
-import com.example.hotelmanagement.navigation.ROUT_FOOD
 import com.example.hotelmanagement.navigation.ROUT_HOTEL
 import com.example.hotelmanagement.navigation.ROUT_INTENT
-import com.example.hotelmanagement.navigation.ROUT_MENU
+import com.example.hotelmanagement.navigation.ROUT_MAP
 import com.example.hotelmanagement.navigation.ROUT_ROOM
+import com.example.hotelmanagement.navigation.VIEW_MENU_URL
+import com.example.hotelmanagement.navigation.VIEW_ROOM_URL
 import com.example.hotelmanagement.ui.theme.Pink
+import com.example.hotelmanagement.ui.theme.newPink1
 
 @Composable
 fun DashboardScreen(navController: NavController) {
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(newPink1),
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
 
         Spacer(modifier = Modifier.height(30.dp))
-
-        Text(
-            text = "Pride Inn",
-            fontSize = 40.sp,
-            fontFamily = FontFamily.SansSerif,
-            color = Color.Magenta
-        )
-        Spacer(modifier = Modifier.height(30.dp))
         Image(
-            painter = painterResource(id = R.drawable.img_6),
+            painter = painterResource(id = R.drawable.img_5),
             contentDescription = "Home",
             modifier = Modifier
-                .size(100.dp),
+                .size(200.dp),
             contentScale = ContentScale.Crop
         )
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         Text(
             text = "We are delighted to have you with us",
-            fontSize = 18.sp,
-            fontFamily = FontFamily.Default
+            fontSize = 25.sp,
+            fontFamily = FontFamily.Default,
+            textAlign = TextAlign.Center
 
         )
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(10.dp))
+
         Column (modifier = Modifier.verticalScroll(rememberScrollState())){
             //Start of main card
             Card(
@@ -89,8 +90,9 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_HOTEL) }) {
+                        .height(200.dp)
+                        .clickable { navController.navigate(ROUT_HOTEL) },
+                        colors = CardDefaults.cardColors(newPink1)) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
@@ -101,16 +103,19 @@ fun DashboardScreen(navController: NavController) {
                                 Image(
                                     painter = painterResource(id = R.drawable.img_13),
                                     contentDescription = "Home",
-                                    modifier = Modifier.size(100.dp)
+                                    modifier = Modifier.size(130.dp)
+                                        .clip(CircleShape),
+                                    contentScale = ContentScale.Crop
                                 )
                             }
                             Spacer(modifier = Modifier.height(15.dp))
 
                             Text(
                                 text = "Hotels",
-                                fontSize = 18.sp,
+                                fontSize = 20.sp,
                                 modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.ExtraBold
 
                             )
                         }
@@ -124,8 +129,9 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_MENU) }
+                        .height(200.dp)
+                        .clickable { navController.navigate(VIEW_MENU_URL) },
+                        colors = CardDefaults.cardColors(newPink1)
                     ) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
@@ -135,9 +141,11 @@ fun DashboardScreen(navController: NavController) {
                                 contentAlignment = Alignment.Center
                             ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.img_12),
+                                    painter = painterResource(id = R.drawable.img_27),
                                     contentDescription = "Hotel",
-                                    modifier = Modifier.size(100.dp)
+                                    modifier = Modifier.size(130.dp)
+                                        .clip(CircleShape),
+                                    contentScale = ContentScale.Crop
                                 )
                             }
                             Spacer(modifier = Modifier.height(15.dp))
@@ -147,6 +155,7 @@ fun DashboardScreen(navController: NavController) {
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.ExtraBold
 
 
 
@@ -166,8 +175,9 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_ENTERTAINMENT) }) {
+                        .height(200.dp)
+                        .clickable { navController.navigate(ROUT_MAP) },
+                        colors = CardDefaults.cardColors(newPink1)) {
                         Column {
                             Spacer(modifier = Modifier.height(15.dp))
 
@@ -176,18 +186,21 @@ fun DashboardScreen(navController: NavController) {
                                 contentAlignment = Alignment.Center
                             ) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.img_1),
-                                    contentDescription = "Entertainment",
-                                    modifier = Modifier.size(100.dp)
+                                    painter = painterResource(id = R.drawable.img_30),
+                                    contentDescription = "",
+                                    modifier = Modifier.size(130.dp)
+
                                 )
                             }
                             Spacer(modifier = Modifier.height(15.dp))
 
                             Text(
-                                text = "Entertainment",
+                                text = "Location",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.ExtraBold
+
 
                             )
                         }
@@ -201,8 +214,9 @@ fun DashboardScreen(navController: NavController) {
                     //Card
                     Card(modifier = Modifier
                         .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_ROOM ) }) {
+                        .height(200.dp)
+                        .clickable { navController.navigate(VIEW_ROOM_URL ) },
+                        colors = CardDefaults.cardColors(newPink1)) {
                         Column {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -213,7 +227,9 @@ fun DashboardScreen(navController: NavController) {
                                 Image(
                                     painter = painterResource(id = R.drawable.img_8),
                                     contentDescription = "Rooms",
-                                    modifier = Modifier.size(100.dp)
+                                    modifier = Modifier.size(130.dp)
+                                        .clip(CircleShape),
+                                    contentScale = ContentScale.Crop
                                 )
                             }
                             Spacer(modifier = Modifier.height(15.dp))
@@ -222,7 +238,9 @@ fun DashboardScreen(navController: NavController) {
                                 text = "Rooms",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
+                                fontWeight = FontWeight.ExtraBold
+
 
                             )
                         }
@@ -231,78 +249,6 @@ fun DashboardScreen(navController: NavController) {
                     }
                     //End of card
                            Spacer(modifier = Modifier.width(20.dp))
-                }
-                //End of Row
-                //Row1
-                Row(modifier = Modifier.padding(20.dp)) {
-                    //Card
-                    Card(modifier = Modifier
-                        .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_DRINK) }) {
-                        Column {
-                            Spacer(modifier = Modifier.height(15.dp))
-
-                            Box(
-                                modifier = Modifier.fillMaxWidth(),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Image(
-                                    painter = painterResource(id = R.drawable.img_10),
-                                    contentDescription = "Drinks",
-                                    modifier = Modifier.size(100.dp)
-                                )
-                            }
-                            Spacer(modifier = Modifier.height(15.dp))
-
-                            Text(
-                                text = "Drinks",
-                                fontSize = 18.sp,
-                                modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Center
-
-                            )
-                        }
-
-
-                    }
-                    //End of card
-
-                             Spacer(modifier = Modifier.width(20.dp))
-
-                    //Card
-                    Card(modifier = Modifier
-                        .width(160.dp)
-                        .height(180.dp)
-                        .clickable { navController.navigate(ROUT_FOOD) }) {
-                        Column {
-                            Spacer(modifier = Modifier.height(20.dp))
-
-                            Box(
-                                modifier = Modifier.fillMaxWidth(),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Image(
-                                    painter = painterResource(id = R.drawable.img_9),
-                                    contentDescription = "Food",
-                                    modifier = Modifier.size(100.dp)
-                                )
-                            }
-                            Spacer(modifier = Modifier.height(15.dp))
-
-                            Text(
-                                text = "Food",
-                                fontSize = 18.sp,
-                                modifier = Modifier.fillMaxWidth(),
-                                textAlign = TextAlign.Center
-
-                            )
-                        }
-
-
-                    }
-                    //End of card
-
                 }
                 //End of Row
 
