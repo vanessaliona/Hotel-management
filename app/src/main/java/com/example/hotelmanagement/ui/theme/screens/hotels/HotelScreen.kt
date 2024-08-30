@@ -187,7 +187,7 @@ fun HotelScreen(navController: NavController){
                         .height(280.dp), contentAlignment = Alignment.Center)
                     {
                         Image(
-                            painter = painterResource(id = R.drawable.img_21),
+                            painter = painterResource(id = R.drawable.img_35),
                             contentDescription = "home",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
@@ -204,7 +204,7 @@ fun HotelScreen(navController: NavController){
                         .height(280.dp), contentAlignment = Alignment.Center)
                     {
                         Image(
-                            painter = painterResource(id = R.drawable.img_20),
+                            painter = painterResource(id = R.drawable.img_37),
                             contentDescription = "home",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
