@@ -186,7 +186,7 @@ fun RoomScreen(navController: NavController){
                         .height(280.dp), contentAlignment = Alignment.Center)
                     {
                         Image(
-                            painter = painterResource(id = R.drawable.img_14),
+                            painter = painterResource(id = R.drawable.img_33),
                             contentDescription = "home",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
@@ -203,7 +203,7 @@ fun RoomScreen(navController: NavController){
                         .height(280.dp), contentAlignment = Alignment.Center)
                     {
                         Image(
-                            painter = painterResource(id = R.drawable.img_15),
+                            painter = painterResource(id = R.drawable.img_34),
                             contentDescription = "home",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
